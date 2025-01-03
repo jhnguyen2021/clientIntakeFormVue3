@@ -1,0 +1,19 @@
+{
+	"extends": "@vue/tsconfig/tsconfig.web.json",
+	"include": ["env/env.d.ts", "src//.d.ts", "src/**/*", "src/**/*.vue"],
+	"compilerOptions": {
+		"baseUrl": ".",
+		"resolveJsonModule": true,
+		"paths": {
+			"@/*": ["./src/*"]
+		},
+		"ignoreDeprecations": "5.0",
+		"typeRoots": ["./node_modules/@types", "./types"]
+	},
+
+	"references": [
+		{
+			"path": "./tsconfig.config.json"
+		}
+	]
+}

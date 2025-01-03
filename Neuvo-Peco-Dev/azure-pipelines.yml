@@ -1,0 +1,47 @@
+trigger:
+- main
+- train
+- qa
+- dev
+
+variables:
+  ${{ if eq(variables['Build.SourceBranchName'], 'main')}}:
+    environment: 'prod'
+    buildCommand: 'npm run build -- --mode prod'
+  ${{ if eq(variables['Build.SourceBranchName'], 'train')}}:
+    environment: 'prod'
+    buildCommand: 'npm run build -- --mode train'
+  ${{ if eq(variables['Build.SourceBranchName'], 'qa')}}:
+    environment: 'qa'
+    buildCommand: 'npm run build -- --mode qa'
+  ${{ if eq(variables['Build.SourceBranchName'], 'dev')}}:
+    environment: 'dev'
+    buildCommand: 'npm run build -- --mode dev'
+
+stages:
+- stage: release_container_image
+  displayName: Release stage
+  jobs:
+  - deployment: Release
+    displayName: Release job
+    pool:
+      vmImage: ubuntu-latest
+    environment:
+      name: $(environment)
+    strategy: 
+      runOnce:
+        deploy:
+          steps:
+          - checkout: self
+            submodules: "true"
+          - task: AzureStaticWebApp@0
+            inputs:
+              app_location: '/'
+              app_build_command: $(buildCommand)
+              output_location: 'dist'
+              skip_api_build: true
+              config_file_location: '/'
+              production_branch: 'main'
+              azure_static_web_apps_api_token: $(deployment_token)
+            env:
+              VITE_BUILD_NUMBER: $(Build.SourceVersion)

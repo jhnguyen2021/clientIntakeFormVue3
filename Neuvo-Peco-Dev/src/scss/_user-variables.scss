@@ -1,0 +1,72 @@
+//
+//
+// user-variables.scss
+//
+// Place your own variable overrides here, these will override any Bootstrap and theme variables.
+
+$prefix: 'falcon-';
+
+// Pinnacle Brand Colors
+$brand: #47a9c2;
+$brand-10: #eaf6f7;
+$brand-20: #d2edf3;
+$brand-40: #a8dee8;
+$brand-60: #7fcbda;
+$brand-80: #5fbad1;
+$brand-overlay: rgba(74,168,195,0.8);
+$brand-overlay-mobile: rgba(74,168,195,0.666);
+$ms-background: #fafafa;
+
+// Pinnacle Gray Colors
+$white: #fff !default;
+$gray: #55575a;
+$gray-10: #eeedee;
+$gray-10-overlay: rgba(238,237,238,0.6);
+$gray-20: #ddddd3;
+$gray-40: #babcbc;
+$gray-60: #989a9c;
+$gray-80: #76797b;
+$gray-text: #383838;
+$black: #000 !default;
+
+// color-variables
+$blue: #2c7be5 !default;
+$indigo: #727cf5 !default;
+$purple: #6b5eae !default;
+$pink: #ff679b !default;
+$red: #e63757 !default;
+$orange: #fd7e14 !default;
+$yellow: #f5803e !default;
+$green: #00d27a !default;
+$teal: #02a8b5 !default;
+$cyan: #27bcfd !default;
+
+// theme-color-variables
+$primary: $brand !default;
+$secondary: $black !default;
+$success: $green !default;
+$info: $cyan !default;
+$warning: $yellow !default;
+$danger: $red !default;
+$light: $gray-10 !default;
+$dark: $gray-text !default;
+
+// theme-color-map
+$theme-colors: (
+  'primary': $primary,
+  'secondary': $secondary,
+  'success': $success,
+  'info': $info,
+  'warning': $warning,
+  'danger': $danger,
+  'light': $light,
+  'dark': $dark,
+) !default;
+
+$font-family-sans-serif: 'Lato', sans-serif !default;
+$font-family-base: 'Lato', sans-serif !default;
+$font-family-monospace: 'Lato', sans-serif !default;
+
+$body-color: $black !default;
+//$body-bg: $white !default;
+$body-bg: $ms-background !default;
